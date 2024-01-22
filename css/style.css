@@ -1,6 +1,6 @@
 /* Body */
 body {
-    font-family: "Roboto", Arila, Verdana, Helvetica, sans-serif;
+    font-family: "Roboto", Arial, Verdana, Helvetica, sans-serif;
     box-sizing: border-box;
 }
 
@@ -54,40 +54,42 @@ body {
 
 .main {
     background-color: #FBFBFB;
+    padding: 3rem;
 }
 
 .header {
     height: 30vh;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Cpolygon fill="%2387CEEB" points="0,0 100,0 50,100" /%3E%3C/svg%3E');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     text-align: center;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    margin-bottom: 3rem;
+    margin: 0;
 }
 
 .container {
     width: min(1320px, 100%);
     margin-left: auto;
     margin-right: auto;
-    padding: 3rem;
 }
 
 .card-group {
     display: grid;
-    grid-template-rows: 400px;
+    grid-template-rows: 1fr;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
 }
 
 .card {
-    height: 100%;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 0.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 2rem;
-    margin: 2rem;
     text-align: center;
     display: grid;
 }
