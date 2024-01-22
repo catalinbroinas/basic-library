@@ -1,4 +1,5 @@
 const myLibrary = [];
+const bookSect = document.querySelector('#books');
 
 function Book(title, author, page, category, read) {
     this.title = title;
@@ -9,5 +10,16 @@ function Book(title, author, page, category, read) {
 }
 
 function addBookToLibrary() {
-    
+
+}
+
+const atomicHabits = new Book('Atomic Habits', 'James Clear', 320, 'life-style', true);
+const successSecrets = new Book('How to Win Friends and Influence People', 'Dale Carnegie', 415, 'communication', true);
+const rule10x = new Book('The 10x Rule', 'Grant Cardone', 240, 'personal development', false);
+
+myLibrary.push(atomicHabits, successSecrets, rule10x);
+
+for (let book of myLibrary) {
+    bookSect.innerHTML +=  `Title: ${book.title}, author: ${book.author}, number of pages: ${book.page},
+     category: ${book.category}, read: ${book.read}` + '<br>';
 }
