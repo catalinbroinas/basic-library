@@ -1,0 +1,7 @@
+/* Typography */
+.page-title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: "Roboto", Arial, sans-serif;
+}
