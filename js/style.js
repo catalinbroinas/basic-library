@@ -18,8 +18,3 @@ const successSecrets = new Book('How to Win Friends and Influence People', 'Dale
 const rule10x = new Book('The 10x Rule', 'Grant Cardone', 240, 'personal development', false);
 
 myLibrary.push(atomicHabits, successSecrets, rule10x);
-
-for (let book of myLibrary) {
-    bookSect.innerHTML +=  `Title: ${book.title}, author: ${book.author}, number of pages: ${book.page},
-     category: ${book.category}, read: ${book.read}` + '<br>';
-}
