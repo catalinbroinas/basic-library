@@ -25,6 +25,8 @@ function createCard({ title, author, category, page, read }) {
     const subTitle = document.createElement('h4');
     const textPage = document.createElement('p');
     const textDesc = document.createElement('p');
+    const textRead = document.createElement('p');
+    const groupBtn = document.createElement('div');
     const readBtn = document.createElement('button');
     const removeBtn = document.createElement('button');
 
@@ -33,27 +35,33 @@ function createCard({ title, author, category, page, read }) {
     subTitle.classList.add('sub-title');
     textPage.classList.add('text');
     textDesc.classList.add('text');
+    textRead.classList.add('text', 'status');
+    groupBtn.classList.add('group-btn');
     readBtn.classList.add('btn', 'btn-status');
     removeBtn.classList.add('btn', 'btn-remove');
 
     readBtn.setAttribute('type', 'button');
     removeBtn.setAttribute('type', 'button');
 
+    read ? textRead.classList.add('read') : textRead.classList.add('not-read');
     read = read ? 'Read' : 'Not read';
 
     titleCard.textContent = title;
     subTitle.textContent = author;
     textDesc.textContent = category;
     textPage.textContent = page;
-    readBtn.textContent = read;
+    textRead.textContent = read;
+    readBtn.textContent = 'Read';
     removeBtn.textContent = 'Remove';
 
     card.appendChild(titleCard);
     card.appendChild(subTitle);
     card.appendChild(textDesc);
     card.appendChild(textPage);
-    card.appendChild(readBtn);
-    card.appendChild(removeBtn);
+    card.appendChild(textRead);
+    card.appendChild(groupBtn);
+    groupBtn.appendChild(readBtn);
+    groupBtn.appendChild(removeBtn);
 
     return card;
 }

@@ -46,15 +46,22 @@ body {
     text-transform: lowercase;
 }
 
+.status {
+    font-weight: bolder;
+    text-transform: capitalize;
+}
+
+.read {
+    color: #14A44D;
+}
+.not-read {
+    color: #DC4C64;
+}
+
 /* Sections */
 .header,
 .main {
     max-width: 100vw;
-}
-
-.main {
-    background-color: #FBFBFB;
-    padding: 3rem;
 }
 
 .header {
@@ -69,6 +76,12 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
+}
+
+.main {
+    min-height: 70vh;
+    background-color: #FBFBFB;
+    padding: 3rem;
 }
 
 .container {
@@ -94,9 +107,17 @@ body {
     display: grid;
 }
 
+.group-btn {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 40%);
+    justify-content: space-between;
+    margin-top: auto;
+}
+
 /* Components */
 .btn {
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     margin-top: 1rem;
     border: none;
     border-radius: 0.3rem;
@@ -113,16 +134,31 @@ body {
 
 .btn-status,
 .btn-remove {
-    display: block;
-    width: 100%;
+    border: 1px solid lightgray;
 }
 
 .btn-status {
-    background-color: #00E676;
+    background-color: #fff;
+    color: #14A44D;
+    border-color: #14A44D;
+    transition: all .5s ease-in-out;
+}
+
+.btn-status:hover,
+.btn-status:active {
+    background-color: #14A44D;
     color: #fff;
 }
 
 .btn-remove {
+    background-color: #fff;
+    color: #DC4C64;
+    border-color: #DC4C64;
+    transition: all .5s ease-in-out;
+}
+
+.btn-remove:hover,
+.btn:active {
     background-color: #DC4C64;
     color: #fff;
 }
