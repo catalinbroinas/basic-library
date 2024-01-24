@@ -115,28 +115,28 @@ body {
     margin-top: auto;
 }
 
-.form-container {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem 2rem; 
+.form-row {
+    display: flex;
+    flex-flow: row wrap;
 }
 
-.book-title {
-    grid-column: 1 / span 2;
-}
-.book-author {
-    grid-column: 3 / span 2;
-}
-.book-category {
-    grid-column: 1 / span 2;
-}
 .form-group {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: 1rem;
+    display: flex;
+    min-width: 250px;
+    flex-flow: column wrap;
+    flex: 40%;
+    margin: 0 2rem 1rem 0;
 }
+
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
 /* Components */
 .btn {
     padding: 0.5rem 1rem;
@@ -220,6 +220,47 @@ body {
     padding: 0.75rem 1.5rem;
     text-transform: capitalize;
     font-size: 1rem;
+}
+
+.form-label {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    color: gray;
+}
+
+.form-label.checkbox-label {
+    font-weight: bolder;
+    color: #000;
+}
+
+.form-control {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-bottom: 2px solid #E5E7EB;
+}
+
+.form-control:focus
+{
+    border-bottom: 2px solid #333;
+    outline: none;
+}
+
+.checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkbox:checked {
+    background-color: #3498db;
+    border: 2px solid #3498db;
 }
 
 /* Modal */

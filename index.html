@@ -28,45 +28,50 @@
             <div class="modal-body">
                 <!-- Form Container -->
                 <div class="form-container">
-                    <!-- Book Title -->
-                    <div class="form-group book-title">
-                        <label for="book-title">Title:</label>
-                        <input type="text" class="form-control" name="book-title" id="book-title">
+                    <!-- Form Row -->
+                    <div class="form-row">
+                        <!-- Book Title -->
+                        <div class="form-group">
+                            <label class="form-label" for="book-title">Title:</label>
+                            <input type="text" class="form-control" name="book-title" id="book-title">
+                        </div>
+                        <!-- Book Title -->
+                        <!-- Book Author-->
+                        <div class="form-group">
+                            <label class="form-label" for="book-author">Author:</label>
+                            <input type="text" class="form-control" name="book-author" id="book-author">
+                        </div>
+                        <!-- Book Author-->
                     </div>
-                    <!-- Book Title -->
+                    <!-- Form Row -->
 
-                    <!-- Book Author-->
-                    <div class="form-group book-author">
-                        <label for="book-author">Author:</label>
-                        <input type="text" class="form-control" name="book-author" id="book-author">
+                    <!-- Form Row -->
+                    <div class="form-row">
+                        <!-- Book Category -->
+                        <div class="form-group">
+                            <label class="form-label" for="book-category">Category:</label>
+                            <input list="book-category" class="form-control" id="input-book-category">
+                            <datalist id="book-category">
+                                <option value="life style"></option>
+                                <option value="communication"></option>
+                                <option value="personal development"></option>
+                            </datalist>
+                        </div>
+                        <!-- Book Category -->
+                        <!-- Book Title -->
+                        <div class="form-group">
+                            <label class="form-label" for="book-page">Pages:</label>
+                            <input type="number" class="form-control" name="book-page" id="book-page">
+                        </div>
+                        <!-- Book Title -->
+                        <!-- Book Status -->
+                        <div class="form-group checkbox-container">
+                            <label class="form-label checkbox-label" for="book-status">Have you read it?</label>
+                            <input type="checkbox" class="checkbox" name="book-status" id="book-status">
+                        </div>
+                        <!-- Book Status -->
                     </div>
-                    <!-- Book Author-->
-
-                    <!-- Book Category -->
-                    <div class="form-group book-category">
-                        <label for="book-category">Category:</label>
-                        <input list="book-category" class="form-control" id="input-book-category">
-                        <datalist id="book-category">
-                            <option value="life style"></option>
-                            <option value="communication"></option>
-                            <option value="personal development"></option>
-                        </datalist>
-                    </div>
-                    <!-- Book Category -->
-
-                    <!-- Book Title -->
-                    <div class="form-group book-page">
-                        <label for="book-page">Pages:</label>
-                        <input type="number" class="form-control" name="book-page" id="book-page">
-                    </div>
-                    <!-- Book Title -->
-
-                    <!-- Book Status -->
-                    <div class="form-group book-read">
-                        <label for="book-status">Read</label>
-                        <input type="checkbox" class="checkbox" name="book-status" id="book-status">
-                    </div>
-                    <!-- Book Status -->
+                    <!-- Form Row -->
                 </div>
                  <!-- Form Container -->
 
