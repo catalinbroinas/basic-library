@@ -1,5 +1,8 @@
 const MY_LIBRARY = [];
 const BOOK_SECT = document.querySelector('#books');
+const MODAL_BOX = document.querySelector('#add-book-modal');
+const NEW_BOOK_BTN = document.querySelector('#btn-new-book');
+const CLOSE_BTN = document.querySelector('#close-button');
 
 function Book(title, author, page, category, read) {
     this.title = title;
@@ -74,6 +77,32 @@ function displayCards(library) {
     });
 }
 
+function displayModal(modal) {
+    modal.style.display = 'block';
+}
+
+function closeModal(modal) {
+    modal.style.display = 'none';
+}
+
 window.addEventListener('load', () => {
     displayCards(MY_LIBRARY);
+});
+window.addEventListener('click', (event) => {
+    setTimeout((modal) => {
+        if (event.target === modal) {
+            closeModal(modal)
+        }
+    }, 500, MODAL_BOX);
+});
+
+NEW_BOOK_BTN.addEventListener('click', () => {
+    setTimeout((modal) => {
+        displayModal(modal);
+    }, 500, MODAL_BOX);
+});
+CLOSE_BTN.addEventListener('click', () => {
+    setTimeout((modal) => {
+        closeModal(modal);
+    }, 500, MODAL_BOX);
 });

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,15 +10,45 @@
     <!-- CSS Style -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    
+
+    <!-- Modal -->
+    <div class="modal" id="add-book-modal">
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <!-- Title -->
+                <h2 class="title">Add new book</h2>
+                <span id="close-button" class="btn-close">&times;</span>
+            </div>
+            <!-- Modal Header -->
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <!-- Book Title -->
+                <div class="form-group">
+                    <label for="book-title">Title</label>
+                    <input type="text" class="form-control" id="book-title">
+                </div>
+                <!-- Book Title -->
+
+                <!-- Button -->
+                <button id="set-name" class="btn btn-primary" role="button">Apply</button>
+            </div>
+            <!-- Modal Body -->
+        </div>
+        <!-- Modal Content -->
+    </div>
+    <!-- Modal -->
+
     <!-- Header -->
     <header class="header">
         <!-- Title -->
         <h1 class="page-title">My Book Library</h1>
 
         <!-- Button -->
-        <button id="btn-add" class="btn btn-primary" role="button">New Book</button>
+        <button id="btn-new-book" class="btn btn-primary" role="button">New Book</button>
     </header>
     <!-- Header -->
 
@@ -37,8 +68,9 @@
     <footer>
 
     </footer>
-     <!-- Footer -->
+    <!-- Footer -->
 
     <script src="js/style.js"></script>
 </body>
+
 </html>
