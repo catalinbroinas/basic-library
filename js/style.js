@@ -44,6 +44,7 @@ function createCard({ title, author, category, page, read }) {
     removeBtn.setAttribute('type', 'button');
 
     read ? textRead.classList.add('read') : textRead.classList.add('not-read');
+    read ? readBtn.classList.add('read') : readBtn.classList.remove('read');
     read = read ? 'Read' : 'Not read';
 
     titleCard.textContent = title;

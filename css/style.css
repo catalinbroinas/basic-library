@@ -51,10 +51,10 @@ body {
     text-transform: capitalize;
 }
 
-.read {
+.status.read {
     color: #14A44D;
 }
-.not-read {
+.status.not-read {
     color: #DC4C64;
 }
 
@@ -146,6 +146,11 @@ body {
 
 .btn-status:hover,
 .btn-status:active {
+    background-color: #14A44D;
+    color: #fff;
+}
+
+.btn-status.read {
     background-color: #14A44D;
     color: #fff;
 }
