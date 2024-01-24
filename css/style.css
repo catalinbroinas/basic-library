@@ -294,6 +294,7 @@ body {
 .modal-header .title {
     text-align: center;
     margin: 0;
+    font-size: 2rem;
 }
 
 .btn-close {
