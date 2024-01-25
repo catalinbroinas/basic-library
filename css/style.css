@@ -58,6 +58,18 @@ body {
     color: #DC4C64;
 }
 
+.alert-title {
+    font-size: 1.7rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.alert-text {
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: center;
+}
+
 /* Sections */
 .header,
 .main {
@@ -135,6 +147,11 @@ body {
     flex-flow: row wrap;
     gap: 2rem;
     margin-top: 1rem;
+}
+
+.alert-box {
+    display: flex;
+    flex-flow: column wrap;
 }
 
 /* Components */

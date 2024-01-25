@@ -96,8 +96,28 @@ function closeModal(modal) {
     modal.style.display = 'none';
 }
 
+function libraryEmpty() {
+    const alertBox = document.createElement('div');
+    const alertTitle = document.createElement('h3');
+    const alertText = document.createElement('p');
+
+    alertBox.classList.add('alert-box');
+    alertTitle.classList.add('alert-title');
+    alertText.classList.add('alert-text');
+
+    alertTitle.textContent = 'Your library is empty';
+    alertText.textContent = 'Please introduce a book in your library';
+
+    if (MY_LIBRARY.length === 0) { 
+        BOOK_SECT.appendChild(alertBox);
+        alertBox.appendChild(alertTitle); 
+        alertBox.appendChild(alertText); 
+    }
+}
+
 window.addEventListener('load', () => {
     displayCards(MY_LIBRARY);
+    libraryEmpty();
 });
 window.addEventListener('click', (event) => {
     setTimeout((modal) => {
@@ -123,5 +143,6 @@ FORM_BOX.addEventListener('submit', (event) => {
     setTimeout((modal) => {
         addBook();
         closeModal(modal);
+        libraryEmpty();
     }, 500, MODAL_BOX);
 });
