@@ -27,7 +27,7 @@
             <!-- Modal Body -->
             <div class="modal-body">
                 <!-- Form Container -->
-                <div class="form-container">
+                <form class="form-container" id="form-new-book">
                     <!-- Form Row -->
                     <div class="form-row">
                         <!-- Book Title -->
@@ -58,12 +58,12 @@
                             </datalist>
                         </div>
                         <!-- Book Category -->
-                        <!-- Book Title -->
+                        <!-- Book Page -->
                         <div class="form-group">
                             <label class="form-label" for="book-page">Pages:</label>
                             <input type="number" class="form-control" name="book-page" id="book-page">
                         </div>
-                        <!-- Book Title -->
+                        <!-- Book Page -->
                         <!-- Book Status -->
                         <div class="form-group checkbox-container">
                             <label class="form-label checkbox-label" for="book-status">Have you read it?</label>
@@ -72,11 +72,11 @@
                         <!-- Book Status -->
                     </div>
                     <!-- Form Row -->
-                </div>
-                 <!-- Form Container -->
 
-                <!-- Button -->
-                <button id="btn-submit" class="btn btn-primary btn-submit" role="button">Add book</button>
+                    <!-- Button -->
+                    <button id="btn-submit" class="btn btn-primary btn-submit" type="submit">Add book</button>
+                </form>
+                <!-- Form Container -->
             </div>
             <!-- Modal Body -->
         </div>

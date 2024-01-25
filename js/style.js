@@ -3,6 +3,7 @@ const BOOK_SECT = document.querySelector('#books');
 const MODAL_BOX = document.querySelector('#add-book-modal');
 const NEW_BOOK_BTN = document.querySelector('#btn-new-book');
 const CLOSE_BTN = document.querySelector('#close-button');
+const FORM_BOX = document.querySelector('#form-new-book');
 
 function Book(title, author, page, category, read) {
     this.title = title;
@@ -11,16 +12,6 @@ function Book(title, author, page, category, read) {
     this.category = category;
     this.read = read;
 }
-
-function addBookToLibrary() {
-
-}
-
-const atomicHabits = new Book('Atomic Habits', 'James Clear', 320, 'life-style', true);
-const successSecrets = new Book('How to Win Friends and Influence People', 'Dale Carnegie', 415, 'communication', true);
-const rule10x = new Book('The 10x Rule', 'Grant Cardone', 240, 'personal development', false);
-
-MY_LIBRARY.push(atomicHabits, successSecrets, rule10x);
 
 function createCard({ title, author, category, page, read }) {
     const card = document.createElement('div');
@@ -71,10 +62,30 @@ function createCard({ title, author, category, page, read }) {
 }
 
 function displayCards(library) {
+    BOOK_SECT.innerHTML = '';
     library.forEach(book => {
         const card = createCard(book);
         BOOK_SECT.appendChild(card);
     });
+}
+
+function addBookToLibrary(book) {
+    MY_LIBRARY.push(book);
+    createCard(book);
+}
+
+function addBook() {
+    const bookTitle = document.querySelector('#book-title').value;
+    const bookAuthor = document.querySelector('#book-author').value;
+    const bookCategory = document.querySelector('#input-book-category').value;
+    const bookPage = document.querySelector('#book-page').value;
+    const bookStatus = document.querySelector('#book-status').checked;
+
+    const newBook = new Book(bookTitle, bookAuthor, bookPage, bookCategory, bookStatus);
+    addBookToLibrary(newBook);
+
+    FORM_BOX.reset();
+    displayCards(MY_LIBRARY);
 }
 
 function displayModal(modal) {
@@ -103,6 +114,14 @@ NEW_BOOK_BTN.addEventListener('click', () => {
 });
 CLOSE_BTN.addEventListener('click', () => {
     setTimeout((modal) => {
+        closeModal(modal);
+    }, 500, MODAL_BOX);
+});
+
+FORM_BOX.addEventListener('submit', (event) => {
+    event.preventDefault();
+    setTimeout((modal) => {
+        addBook();
         closeModal(modal);
     }, 500, MODAL_BOX);
 });
