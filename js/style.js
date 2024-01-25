@@ -108,10 +108,10 @@ function libraryEmpty() {
     alertTitle.textContent = 'Your library is empty';
     alertText.textContent = 'Please introduce a book in your library';
 
-    if (MY_LIBRARY.length === 0) { 
+    if (MY_LIBRARY.length === 0) {
         BOOK_SECT.appendChild(alertBox);
-        alertBox.appendChild(alertTitle); 
-        alertBox.appendChild(alertText); 
+        alertBox.appendChild(alertTitle);
+        alertBox.appendChild(alertText);
     }
 }
 
@@ -145,4 +145,21 @@ FORM_BOX.addEventListener('submit', (event) => {
         closeModal(modal);
         libraryEmpty();
     }, 500, MODAL_BOX);
+});
+
+// Add a click event to Books section to handle "Read" button events
+BOOK_SECT.addEventListener('click', (event) => {
+    const target = event.target;
+
+    // Check if the clicked element has the "btn-status" class
+    if (target.classList.contains('btn-status')) {
+        const card = target.closest('.card'); // Get the card element associated with the button
+        const index = Array.from(BOOK_SECT.children).indexOf(card); // Get index of the card
+
+        // Toggle the "read" status
+        MY_LIBRARY[index].read = !MY_LIBRARY[index].read;
+
+        // Update Books section display
+        displayCards(MY_LIBRARY);
+    }
 });
