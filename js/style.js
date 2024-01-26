@@ -23,6 +23,8 @@ function createCard({ title, author, category, page, read }) {
     const groupBtn = document.createElement('div');
     const readBtn = document.createElement('button');
     const removeBtn = document.createElement('button');
+    const readIcon = document.createElement('i');
+    const removeIcon = document.createElement('i');
 
     card.classList.add('card');
     titleCard.classList.add('title');
@@ -33,12 +35,15 @@ function createCard({ title, author, category, page, read }) {
     groupBtn.classList.add('group-btn');
     readBtn.classList.add('btn', 'btn-status');
     removeBtn.classList.add('btn', 'btn-remove');
+    readIcon.classList.add('mdi', 'me-2');
+    removeIcon.classList.add('mdi', 'mdi-delete', 'me-2');
 
     readBtn.setAttribute('type', 'button');
     removeBtn.setAttribute('type', 'button');
 
     read ? textRead.classList.add('read') : textRead.classList.add('not-read');
     read ? readBtn.classList.add('read') : readBtn.classList.remove('read');
+    read ? readIcon.classList.add('mdi-check-circle') : readIcon.classList.add('mdi-clock-time-four');
     read = read ? 'Read' : 'Not read';
 
     titleCard.textContent = title;
@@ -57,6 +62,8 @@ function createCard({ title, author, category, page, read }) {
     card.appendChild(groupBtn);
     groupBtn.appendChild(readBtn);
     groupBtn.appendChild(removeBtn);
+    removeBtn.appendChild(removeIcon);
+    readBtn.appendChild(readIcon);
 
     return card;
 }
