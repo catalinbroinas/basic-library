@@ -106,10 +106,16 @@ function closeModal(modal) {
 function libraryEmpty() {
     if (MY_LIBRARY.length === 0) {
         const alertBox = document.createElement('div');
+        const alertContent = document.createElement('div');
+        const alertIconBox = document.createElement('div');
+        const alertIcon = document.createElement('i');
         const alertTitle = document.createElement('h3');
         const alertText = document.createElement('p');
 
         alertBox.classList.add('alert-box');
+        alertContent.classList.add('alert-content');
+        alertIconBox.classList.add('alert-icon-box');
+        alertIcon.classList.add('mdi', 'mdi-alert-box', 'alert-icon');
         alertTitle.classList.add('alert-title');
         alertText.classList.add('alert-text');
 
@@ -117,8 +123,11 @@ function libraryEmpty() {
         alertText.textContent = 'Please introduce a book in your library';
 
         BOOK_SECT.appendChild(alertBox);
-        alertBox.appendChild(alertTitle);
-        alertBox.appendChild(alertText);
+        alertBox.appendChild(alertIconBox);
+        alertBox.appendChild(alertContent);
+        alertIconBox.appendChild(alertIcon);
+        alertContent.appendChild(alertTitle);
+        alertContent.appendChild(alertText);
     }
 }
 
