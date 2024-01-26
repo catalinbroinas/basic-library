@@ -165,8 +165,10 @@ input:placeholder-shown {
 }
 
 .alert-box {
+    max-width: 450px;
     display: flex;
     flex-flow: column wrap;
+    justify-self: center;
     gap: 1rem;
     background-color: #E3F2FD;
     padding: 2rem;
@@ -224,6 +226,7 @@ input:placeholder-shown {
 
 /* Components */
 .card {
+    max-width: 450px;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 0.5rem;
