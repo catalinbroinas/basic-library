@@ -35,13 +35,16 @@
                         <!-- Book Title -->
                         <div class="form-group">
                             <label class="form-label" for="book-title">Title:</label>
-                            <input type="text" class="form-control" name="book-title" id="book-title" minlength="3" maxlength="30" required>
+                            <input type="text" class="form-control" name="book-title" id="book-title"
+                                placeholder="Atomic Habits" minlength="3" maxlength="30" required>
                         </div>
                         <!-- Book Title -->
                         <!-- Book Author-->
                         <div class="form-group">
                             <label class="form-label" for="book-author">Author:</label>
-                            <input type="text" class="form-control" name="book-author" id="book-author" minlength="7" maxlength="20" required>
+                            <input type="text" class="form-control" name="book-author" id="book-author"
+                                placeholder="James Clear" pattern="^[A-Z][a-z]+ [A-Z][a-z]+$" minlength="7"
+                                maxlength="20" required>
                         </div>
                         <!-- Book Author-->
                     </div>
@@ -52,7 +55,9 @@
                         <!-- Book Category -->
                         <div class="form-group">
                             <label class="form-label" for="book-category">Category:</label>
-                            <input list="book-category" class="form-control" id="input-book-category" minlength="4" maxlength="20" required>
+                            <input list="book-category" class="form-control" id="input-book-category"
+                                placeholder="life style" pattern="^[a-zA-Z]+(?:\s[a-zA-Z]+)*$" minlength="4"
+                                maxlength="20" required>
                             <datalist id="book-category">
                                 <option value="life style"></option>
                                 <option value="communication"></option>
@@ -63,7 +68,8 @@
                         <!-- Book Page -->
                         <div class="form-group">
                             <label class="form-label" for="book-page">Pages:</label>
-                            <input type="number" class="form-control" name="book-page" id="book-page" min="50" max="1000" step="1" required>
+                            <input type="number" class="form-control" name="book-page" id="book-page" placeholder="320"
+                                pattern="^\d+$" min="50" max="1000" step="1" required>
                         </div>
                         <!-- Book Page -->
                         <!-- Book Status -->
