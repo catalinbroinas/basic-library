@@ -54,6 +54,7 @@ body {
 .status.read {
     color: #14A44D;
 }
+
 .status.not-read {
     color: #DC4C64;
 }
@@ -156,6 +157,8 @@ body {
 
 /* Components */
 .btn {
+    position: relative;
+    overflow: hidden;
     padding: 0.5rem 1rem;
     margin-top: 1rem;
     border: none;
@@ -258,8 +261,7 @@ body {
     border-bottom: 2px solid #E5E7EB;
 }
 
-.form-control:focus
-{
+.form-control:focus {
     border-bottom: 2px solid #333;
     outline: none;
 }
@@ -284,6 +286,7 @@ body {
 .modal {
     display: none;
     position: fixed;
+    z-index: 99;
     top: 0;
     left: 0;
     overflow: hidden;
@@ -325,4 +328,30 @@ body {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Animation */
+.btn span {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    animation: ripple 1s;
+    opacity: 0;
+}
+
+/* Add animation */
+@keyframes ripple {
+    from {
+        opacity: 1;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(10);
+    }
 }
