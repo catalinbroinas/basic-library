@@ -115,7 +115,7 @@ function libraryEmpty() {
         alertBox.classList.add('alert-box');
         alertContent.classList.add('alert-content');
         alertIconBox.classList.add('alert-icon-box');
-        alertIcon.classList.add('mdi', 'mdi-alert-box', 'alert-icon');
+        alertIcon.classList.add('mdi', 'mdi-chevron-right-box', 'alert-icon');
         alertTitle.classList.add('alert-title');
         alertText.classList.add('alert-text');
 
