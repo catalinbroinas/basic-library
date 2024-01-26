@@ -186,6 +186,9 @@ BOOK_SECT.addEventListener('click', (event) => {
         const card = target.closest('.card'); // Get the card element associated with the button
         const index = Array.from(BOOK_SECT.children).indexOf(card); // Get index of the card
 
+        // Add ripple effect
+        rippleEffect(target);
+
         setTimeout((library) => {
             // Toggle the "read" status
             library[index].read = !library[index].read;
@@ -196,6 +199,9 @@ BOOK_SECT.addEventListener('click', (event) => {
     } else if (target.classList.contains('btn-remove')) {
         const card = target.closest('.card');
         const index = Array.from(BOOK_SECT.children).indexOf(card);
+
+        // Add ripple effect
+        rippleEffect(target);
 
         setTimeout((library) => {
             // Remove the book
