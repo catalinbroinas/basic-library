@@ -221,7 +221,7 @@ BOOK_SECT.addEventListener('click', (event) => {
 
         setTimeout((library) => {
             // Remove the book
-            library.splice(library[index], 1);
+            library.splice(index, 1);
 
             // Update Books section display
             displayCards(library);
