@@ -253,6 +253,10 @@ class Library {
     removeBook(book) {
         this.books.splice(index, 1);
     }
+
+    toggleReadStatus(index) {
+        this.books[index].read = !this.books[index].read;
+    }
 }
 
 class UI {
