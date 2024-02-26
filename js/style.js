@@ -250,7 +250,7 @@ class Library {
         this.books.push(book);
     }
 
-    removeBook(book) {
+    removeBook(index) {
         this.books.splice(index, 1);
     }
 
@@ -322,10 +322,10 @@ class UI {
         return card;
     }
 
-    displayCards() {
+    displayCards(library) {
         this.bookSect.innerHTML = '';
-        this.books.forEach(book => {
-            const card = createCard(book);
+        library.forEach(book => {
+            const card = this.createCard(book);
             this.bookSect.appendChild(card);
         })
     }
