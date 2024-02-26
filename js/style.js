@@ -230,3 +230,13 @@ BOOK_SECT.addEventListener('click', (event) => {
         setTimeout(libraryEmpty, 1000);
     }
 });
+
+class Book {
+    constructor(title, author, page, category, read) {
+        this.title = title;
+        this.author = author;
+        this.page = page;
+        this.category = category;
+        this.read = read;
+    } 
+}
