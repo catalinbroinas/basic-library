@@ -267,11 +267,66 @@ class UI {
         this.closeButton = document.querySelector('#close-button');
     }
 
-    createCard() {
+    createCard({ title, author, category, page, read }) {
+        const card = document.createElement('div');
+        const titleCard = document.createElement('h3');
+        const subTitle = document.createElement('h4');
+        const textPage = document.createElement('p');
+        const textDesc = document.createElement('p');
+        const textRead = document.createElement('p');
+        const groupBtn = document.createElement('div');
+        const readBtn = document.createElement('button');
+        const removeBtn = document.createElement('button');
+        const readIcon = document.createElement('i');
+        const removeIcon = document.createElement('i');
 
+        card.classList.add('card');
+        titleCard.classList.add('title');
+        subTitle.classList.add('sub-title');
+        textPage.classList.add('text');
+        textDesc.classList.add('text');
+        textRead.classList.add('text', 'status');
+        groupBtn.classList.add('group-btn');
+        readBtn.classList.add('btn', 'btn-status');
+        removeBtn.classList.add('btn', 'btn-remove');
+        readIcon.classList.add('mdi', 'me-2');
+        removeIcon.classList.add('mdi', 'mdi-delete', 'me-2');
+
+        readBtn.setAttribute('type', 'button');
+        removeBtn.setAttribute('type', 'button');
+
+        read ? textRead.classList.add('read') : textRead.classList.add('not-read');
+        read ? readBtn.classList.add('read') : readBtn.classList.remove('read');
+        read ? readIcon.classList.add('mdi-check-circle') : readIcon.classList.add('mdi-clock-time-four');
+        read = read ? 'Read' : 'Not read';
+
+        titleCard.textContent = title;
+        subTitle.textContent = author;
+        textDesc.textContent = category;
+        textPage.textContent = page;
+        textRead.textContent = read;
+        readBtn.textContent = 'Read';
+        removeBtn.textContent = 'Remove';
+
+        card.appendChild(titleCard);
+        card.appendChild(subTitle);
+        card.appendChild(textDesc);
+        card.appendChild(textPage);
+        card.appendChild(textRead);
+        card.appendChild(groupBtn);
+        groupBtn.appendChild(readBtn);
+        groupBtn.appendChild(removeBtn);
+        removeBtn.appendChild(removeIcon);
+        readBtn.appendChild(readIcon);
+
+        return card;
     }
 
     displayCards() {
-
+        this.bookSect.innerHTML = '';
+        this.books.forEach(book => {
+            const card = createCard(book);
+            this.bookSect.appendChild(card);
+        })
     }
 }
