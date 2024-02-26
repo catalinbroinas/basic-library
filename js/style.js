@@ -238,5 +238,19 @@ class Book {
         this.page = page;
         this.category = category;
         this.read = read;
-    } 
+    }
+}
+
+class Library {
+    constructor() {
+        this.books = [];
+    }
+
+    addBook(book) {
+        this.books.push(book);
+    }
+
+    removeBook(book) {
+        this.books.splice(index, 1);
+    }
 }
