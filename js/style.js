@@ -131,35 +131,35 @@ function libraryEmpty() {
     }
 }
 
-function rippleEffect(btn) {
-    const ripple = document.createElement("span");
+// function rippleEffect(btn) {
+//     const ripple = document.createElement("span");
 
-    ripple.classList.add("ripple");
+//     ripple.classList.add("ripple");
 
-    btn.appendChild(ripple);
+//     btn.appendChild(ripple);
 
-    // Get position of X
-    const x = btn.clientX - btn.offsetLeft;
+//     // Get position of X
+//     const x = btn.clientX - btn.offsetLeft;
 
-    // Get position of Y 
-    const y = btn.clientY - btn.offsetTop;
+//     // Get position of Y 
+//     const y = btn.clientY - btn.offsetTop;
 
-    // Position the span element 
-    ripple.style.left = `${x}px`;
-    ripple.style.top = `${y}px`;
+//     // Position the span element 
+//     ripple.style.left = `${x}px`;
+//     ripple.style.top = `${y}px`;
 
-    // Remove span after 0.3s 
-    setTimeout(() => {
-        ripple.remove();
-    }, 300);
-}
+//     // Remove span after 0.3s 
+//     setTimeout(() => {
+//         ripple.remove();
+//     }, 300);
+// }
 
-const BUTTONS = document.querySelectorAll('.btn');
-BUTTONS.forEach((button) => {
-    button.addEventListener('click', (event) => {
-        rippleEffect(event.target);
-    });
-});
+// const BUTTONS = document.querySelectorAll('.btn');
+// BUTTONS.forEach((button) => {
+//     button.addEventListener('click', (event) => {
+//         rippleEffect(event.target);
+//     });
+// });
 
 // window.addEventListener('load', () => {
 //     displayCards(MY_LIBRARY);
@@ -265,6 +265,7 @@ class UI {
         this.modalBox = document.querySelector('#add-book-modal');
         this.newBookButton = document.querySelector('#btn-new-book');
         this.closeButton = document.querySelector('#close-button');
+        this.buttons = document.querySelectorAll('.btn');
     }
 
     createCard({ title, author, category, page, read }) {
@@ -337,6 +338,29 @@ class UI {
     closeModal = () => {
         this.modalBox.style.display = 'none';
     }
+
+    rippleEffect = (btn) => {
+        const ripple = document.createElement("span");
+    
+        ripple.classList.add("ripple");
+    
+        btn.appendChild(ripple);
+    
+        // Get position of X
+        const x = btn.clientX - btn.offsetLeft;
+    
+        // Get position of Y 
+        const y = btn.clientY - btn.offsetTop;
+    
+        // Position the span element 
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+    
+        // Remove span after 0.3s 
+        setTimeout(() => {
+            ripple.remove();
+        }, 300);
+    }
 }
 
 const library = new Library();
@@ -358,4 +382,9 @@ window.addEventListener('click', (event) => {
             ui.closeModal(modal)
         }
     }, 500, ui.modalBox);
+});
+ui.buttons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        ui.rippleEffect(event.target);
+    });
 });
