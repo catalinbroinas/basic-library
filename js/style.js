@@ -148,8 +148,8 @@ function rippleEffect(btn) {
     ripple.style.left = `${x}px`;
     ripple.style.top = `${y}px`;
 
-     // Remove span after 0.3s 
-     setTimeout(() => {
+    // Remove span after 0.3s 
+    setTimeout(() => {
         ripple.remove();
     }, 300);
 }
@@ -252,5 +252,22 @@ class Library {
 
     removeBook(book) {
         this.books.splice(index, 1);
+    }
+}
+
+class UI {
+    constructor() {
+        this.bookSect = document.querySelector('#books');
+        this.modalBox = document.querySelector('#add-book-modal');
+        this.newBookButton = document.querySelector('#btn-new-book');
+        this.closeButton = document.querySelector('#close-button');
+    }
+
+    createCard() {
+
+    }
+
+    displayCards() {
+
     }
 }
