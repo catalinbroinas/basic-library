@@ -329,4 +329,12 @@ class UI {
             this.bookSect.appendChild(card);
         })
     }
+
+    displayModal = (modal) => {
+        modal.style.display = 'block';
+    }
+
+    closeModal = (modal) => {
+        modal.style.display = 'none';
+    }
 }
