@@ -1,81 +1,3 @@
-// const MY_LIBRARY = [];
-// const BOOK_SECT = document.querySelector('#books');
-// const MODAL_BOX = document.querySelector('#add-book-modal');
-// const NEW_BOOK_BTN = document.querySelector('#btn-new-book');
-// const CLOSE_BTN = document.querySelector('#close-button');
-// const FORM_BOX = document.querySelector('#form-new-book');
-
-// function Book(title, author, page, category, read) {
-//     this.title = title;
-//     this.author = author;
-//     this.page = page;
-//     this.category = category;
-//     this.read = read;
-// }
-
-// function createCard({ title, author, category, page, read }) {
-//     const card = document.createElement('div');
-//     const titleCard = document.createElement('h3');
-//     const subTitle = document.createElement('h4');
-//     const textPage = document.createElement('p');
-//     const textDesc = document.createElement('p');
-//     const textRead = document.createElement('p');
-//     const groupBtn = document.createElement('div');
-//     const readBtn = document.createElement('button');
-//     const removeBtn = document.createElement('button');
-//     const readIcon = document.createElement('i');
-//     const removeIcon = document.createElement('i');
-
-//     card.classList.add('card');
-//     titleCard.classList.add('title');
-//     subTitle.classList.add('sub-title');
-//     textPage.classList.add('text');
-//     textDesc.classList.add('text');
-//     textRead.classList.add('text', 'status');
-//     groupBtn.classList.add('group-btn');
-//     readBtn.classList.add('btn', 'btn-status');
-//     removeBtn.classList.add('btn', 'btn-remove');
-//     readIcon.classList.add('mdi', 'me-2');
-//     removeIcon.classList.add('mdi', 'mdi-delete', 'me-2');
-
-//     readBtn.setAttribute('type', 'button');
-//     removeBtn.setAttribute('type', 'button');
-
-//     read ? textRead.classList.add('read') : textRead.classList.add('not-read');
-//     read ? readBtn.classList.add('read') : readBtn.classList.remove('read');
-//     read ? readIcon.classList.add('mdi-check-circle') : readIcon.classList.add('mdi-clock-time-four');
-//     read = read ? 'Read' : 'Not read';
-
-//     titleCard.textContent = title;
-//     subTitle.textContent = author;
-//     textDesc.textContent = category;
-//     textPage.textContent = page;
-//     textRead.textContent = read;
-//     readBtn.textContent = 'Read';
-//     removeBtn.textContent = 'Remove';
-
-//     card.appendChild(titleCard);
-//     card.appendChild(subTitle);
-//     card.appendChild(textDesc);
-//     card.appendChild(textPage);
-//     card.appendChild(textRead);
-//     card.appendChild(groupBtn);
-//     groupBtn.appendChild(readBtn);
-//     groupBtn.appendChild(removeBtn);
-//     removeBtn.appendChild(removeIcon);
-//     readBtn.appendChild(readIcon);
-
-//     return card;
-// }
-
-// function displayCards(library) {
-//     BOOK_SECT.innerHTML = '';
-//     library.forEach(book => {
-//         const card = createCard(book);
-//         BOOK_SECT.appendChild(card);
-//     });
-// }
-
 // function addBookToLibrary(book) {
 //     MY_LIBRARY.push(book);
 //     createCard(book);
@@ -94,14 +16,6 @@ function addBook() {
     FORM_BOX.reset();
     displayCards(MY_LIBRARY);
 }
-
-// function displayModal(modal) {
-//     modal.style.display = 'block';
-// }
-
-// function closeModal(modal) {
-//     modal.style.display = 'none';
-// }
 
 function libraryEmpty() {
     if (MY_LIBRARY.length === 0) {
@@ -130,36 +44,6 @@ function libraryEmpty() {
         alertContent.appendChild(alertText);
     }
 }
-
-// function rippleEffect(btn) {
-//     const ripple = document.createElement("span");
-
-//     ripple.classList.add("ripple");
-
-//     btn.appendChild(ripple);
-
-//     // Get position of X
-//     const x = btn.clientX - btn.offsetLeft;
-
-//     // Get position of Y 
-//     const y = btn.clientY - btn.offsetTop;
-
-//     // Position the span element 
-//     ripple.style.left = `${x}px`;
-//     ripple.style.top = `${y}px`;
-
-//     // Remove span after 0.3s 
-//     setTimeout(() => {
-//         ripple.remove();
-//     }, 300);
-// }
-
-// const BUTTONS = document.querySelectorAll('.btn');
-// BUTTONS.forEach((button) => {
-//     button.addEventListener('click', (event) => {
-//         rippleEffect(event.target);
-//     });
-// });
 
 // window.addEventListener('load', () => {
 //     displayCards(MY_LIBRARY);
@@ -266,6 +150,7 @@ class UI {
         this.newBookButton = document.querySelector('#btn-new-book');
         this.closeButton = document.querySelector('#close-button');
         this.buttons = document.querySelectorAll('.btn');
+        this.formBox = document.querySelector('#form-new-book');
     }
 
     createCard({ title, author, category, page, read }) {
@@ -331,6 +216,34 @@ class UI {
         })
     }
 
+    libraryEmpty = (library) => {
+        if (library.length === 0) {
+            const alertBox = document.createElement('div');
+            const alertContent = document.createElement('div');
+            const alertIconBox = document.createElement('div');
+            const alertIcon = document.createElement('i');
+            const alertTitle = document.createElement('h3');
+            const alertText = document.createElement('p');
+    
+            alertBox.classList.add('alert-box');
+            alertContent.classList.add('alert-content');
+            alertIconBox.classList.add('alert-icon-box');
+            alertIcon.classList.add('mdi', 'mdi-chevron-right-box', 'alert-icon');
+            alertTitle.classList.add('alert-title');
+            alertText.classList.add('alert-text');
+    
+            alertTitle.textContent = 'Your library is empty';
+            alertText.textContent = 'Please introduce a book in your library';
+    
+            this.bookSect.appendChild(alertBox);
+            alertBox.appendChild(alertIconBox);
+            alertBox.appendChild(alertContent);
+            alertIconBox.appendChild(alertIcon);
+            alertContent.appendChild(alertTitle);
+            alertContent.appendChild(alertText);
+        }
+    }
+
     displayModal = () => {
         this.modalBox.style.display = 'block';
     }
@@ -366,11 +279,14 @@ class UI {
 const library = new Library();
 const ui = new UI();
 
+// Open modal
 ui.newBookButton.addEventListener('click', () => {
     setTimeout(() => {
         ui.displayModal()
     }, 500);
 });
+
+// Close modal
 ui.closeButton.addEventListener('click', () => {
     setTimeout(() => {
         ui.closeModal();
@@ -383,8 +299,15 @@ window.addEventListener('click', (event) => {
         }
     }, 500, ui.modalBox);
 });
+
+// Add ripple effect to buttons
 ui.buttons.forEach(button => {
     button.addEventListener('click', (event) => {
         ui.rippleEffect(event.target);
     });
+});
+
+// Load page
+window.addEventListener('load', () => {
+    ui.libraryEmpty(library.books);
 });
