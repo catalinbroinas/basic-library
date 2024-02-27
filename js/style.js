@@ -1,60 +1,3 @@
-// function addBookToLibrary(book) {
-//     MY_LIBRARY.push(book);
-//     createCard(book);
-// }
-
-function addBook() {
-    const bookTitle = document.querySelector('#book-title').value;
-    const bookAuthor = document.querySelector('#book-author').value;
-    const bookCategory = document.querySelector('#input-book-category').value;
-    const bookPage = document.querySelector('#book-page').value;
-    const bookStatus = document.querySelector('#book-status').checked;
-
-    const newBook = new Book(bookTitle, bookAuthor, bookPage, bookCategory, bookStatus);
-    addBookToLibrary(newBook);
-
-    FORM_BOX.reset();
-    displayCards(MY_LIBRARY);
-}
-
-// Add a click event to Books section to handle "Read" and "Remove" button events
-// BOOK_SECT.addEventListener('click', (event) => {
-//     const target = event.target;
-
-//     // Check if the clicked element has the "btn-status" or "btn-remove" class
-//     if (target.classList.contains('btn-status')) {
-//         const card = target.closest('.card'); // Get the card element associated with the button
-//         const index = Array.from(BOOK_SECT.children).indexOf(card); // Get index of the card
-
-//         // Add ripple effect
-//         rippleEffect(target);
-
-//         setTimeout((library) => {
-//             // Toggle the "read" status
-//             library[index].read = !library[index].read;
-
-//             // Update Books section display
-//             displayCards(library);
-//         }, 500, MY_LIBRARY);
-//     } else if (target.classList.contains('btn-remove')) {
-//         const card = target.closest('.card');
-//         const index = Array.from(BOOK_SECT.children).indexOf(card);
-
-//         // Add ripple effect
-//         rippleEffect(target);
-
-//         setTimeout((library) => {
-//             // Remove the book
-//             library.splice(index, 1);
-
-//             // Update Books section display
-//             displayCards(library);
-//         }, 500, MY_LIBRARY);
-//         // Display a message if library is empty
-//         setTimeout(libraryEmpty, 1000);
-//     }
-// });
-
 class Book {
     constructor(title, author, page, category, read) {
         this.title = title;
@@ -252,12 +195,13 @@ ui.buttons.forEach(button => {
     });
 });
 
-// Load page
+// When page is loaded, check if exist books in library
 window.addEventListener('load', () => {
     ui.displayCards(library.books);
     ui.libraryEmpty(library.books);
 });
 
+// Submit form
 ui.formBox.addEventListener('submit', (event) => {
     event.preventDefault();
     const book = new Book(ui.bookTitle.value, ui.bookAuthor.value, ui.bookPage.value, ui.bookCategory.value, ui.bookStatus.checked);
@@ -267,4 +211,45 @@ ui.formBox.addEventListener('submit', (event) => {
         ui.displayCards(library.books);
         ui.libraryEmpty(library.books);
     }, 500);
+    event.target.reset();
+});
+
+// Add a click event to Books section to handle "Read" and "Remove" button events
+ui.bookSect.addEventListener('click', (event) => {
+    const target = event.target;
+
+    // Check if the clicked element has the "btn-status" or "btn-remove" class
+    if (target.classList.contains('btn-status')) {
+        const card = target.closest('.card'); // Get the card element associated with the button
+        const index = Array.from(ui.bookSect.children).indexOf(card); // Get index of the card
+
+        // Add ripple effect
+        ui.rippleEffect(target);
+
+        setTimeout((my_library) => {
+            // Toggle the "read" status
+           library.toggleReadStatus(index);
+
+            // Update Books section display
+            ui.displayCards(my_library);
+        }, 500, library.books);
+    } else if (target.classList.contains('btn-remove')) {
+        const card = target.closest('.card');
+        const index = Array.from(ui.bookSect.children).indexOf(card);
+
+        // Add ripple effect
+        ui.rippleEffect(target);
+
+        setTimeout((my_library) => {
+            // Remove the book
+            library.removeBook(index);
+
+            // Update Books section display
+            ui.displayCards(my_library);
+        }, 500, library.books);
+        // Display a message if library is empty
+        setTimeout(() => {
+            ui.libraryEmpty(library.books);
+        }, 1000);
+    }
 });
