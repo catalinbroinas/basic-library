@@ -169,16 +169,12 @@ const ui = new UI();
 
 // Open modal
 ui.newBookButton.addEventListener('click', () => {
-    setTimeout(() => {
-        ui.displayModal()
-    }, 500);
+    setTimeout(ui.displayModal, 500);
 });
 
 // Close modal
 ui.closeButton.addEventListener('click', () => {
-    setTimeout(() => {
-        ui.closeModal();
-    }, 500);
+    setTimeout(ui.closeModal, 500);
 });
 window.addEventListener('click', (event) => {
     setTimeout((modal) => {
@@ -248,8 +244,6 @@ ui.bookSect.addEventListener('click', (event) => {
             ui.displayCards(my_library);
         }, 500, library.books);
         // Display a message if library is empty
-        setTimeout(() => {
-            ui.libraryEmpty(library.books);
-        }, 1000);
+        setTimeout(ui.libraryEmpty, 1000, library.books);
     }
 });
